@@ -5,13 +5,13 @@ import { useEffect } from "react";
 
 export const Header = () => {
 
-  const [clicked, setIsClicked] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [currentTab, setCurrentTab] = useState("");
-  const handleNavBar = (currentId)=>{
-    
+  
+  const handleNavBar = (currentId)=>{  
     setCurrentTab(currentId);
-    setIsClicked(false)
+    setMenuOpen(false)
   }
 
   // Detect scroll and change navbar background
@@ -40,8 +40,9 @@ export const Header = () => {
   ]
 
   return (
-    <nav className={`
+    <nav className={`fixed top-0 w-full z-50 transition duration-300 px-[7vw] md:px-[7vw] lg:px-[20vw]
      ${isScrolled ? "bg-[#050414] bg-opacity-50 backdrop-blur-md shadow-md" : "bg-transparent"}`}>
+      
       <div className="text-white py-5 flex justify-between items-center">
         <div className="text-lg font-semibold cursor-pointer">
           <span className="text-[#8245ec]">&lt;</span>
@@ -50,10 +51,9 @@ export const Header = () => {
           <span className="text-white">Mishra</span>
           <span className="text-[#8245ec]">&gt;</span>
         </div>
-        <ul className="md:flex space-x-8 text-gray-300">
-          {
-          navItems.map((navItem)=>{
-            return (
+
+        <ul className="hidden md:flex space-x-8 text-gray-300">
+          { navItems.map((navItem)=>(
               <li key={navItem.id}
                 className={`cursor-pointer hover:text-[#8245ec] ${currentTab === navItem.id ? "text-[#8245ec]" : ""}`}
               >
@@ -61,10 +61,87 @@ export const Header = () => {
                   {navItem.label}
                 </button>
               </li>
-            );
-          })}
+            )
+          )}
         </ul>
-      </div>
+
+
+        <div className="hidden md:flex space-x-4">
+          <a
+            href="https://github.com/AnchalMish9630"
+            target="_blank" // so that page should open in new tab
+            rel="noopener noreferrer"
+            className="text-gray-300 hover:text-[#8245ec]"
+          >
+            <FaGithub size={25} />
+          </a>
+           <a
+            href="https://www.linkedin.com/in/anchalmishra0906/"
+            target="_blank" // so that page should open in new tab
+            rel="noopener noreferrer"
+            className="text-gray-300 hover:text-[#8245ec]"
+          >
+            <FaLinkedin size={25} />
+          </a>
+        </div>
+
+      
+
+          {/* {for Mobile view} */}
+         <div className="md:hidden">
+            {
+              menuOpen ? 
+              <FiX className="text-3xl text-[#8245ec] cursor-pointer"
+                onClick={()=>setMenuOpen(false)} // means you have to click on close icon to close then menu by making menuOpen to "false"
+              /> : 
+              <FiMenu 
+               className="text-3xl text-[#8245ec] cursor-pointer"
+               onClick={()=>setMenuOpen(true)}  // menuOpen is true means if there is menu icon then open it by making menuOpen as true
+              />
+            }
+            </div>
+        
+        </div>
+
+            {menuOpen && (
+            <div className="absolute top-16 left-1/2 transform -translate-x-1/2 w-4/5 bg-[#050414] bg-opacity-50 backdrop-filter backdrop-blur-lg z-50 rounded-lg shadow-lg md:hidden">
+                 <ul className="flex flex-col item-center space-y-4 py-4 text-gray-300 ">
+                             {navItems.map((navItem)=>(
+                 <li  key={navItem.id}
+                      className={`cursor-pointer hover:text-white ${currentTab=== navItem.id ? "text-[#8245ec]" : ""}`}
+                  >
+                  <button onClick={()=> handleNavBar(navItem.id)}>
+                    {navItem.label}
+                  </button>
+                  </li>
+                ))}
+              </ul>
+            
+            
+            <div className="flex space-x-4">
+                <a
+            href="https://github.com/AnchalMish9630"
+            target="_blank" // so that page should open in new tab
+            rel="noopener noreferrer"
+            className="text-gray-300 hover:text-[#8245ec]"
+          >
+            <FaGithub size={25} />
+          </a>
+           <a
+            href="https://www.linkedin.com/in/anchalmishra0906/"
+            target="_blank" // so that page should open in new tab
+            rel="noopener noreferrer"
+            className="text-gray-300 hover:text-[#8245ec]"
+          >
+            <FaLinkedin size={25} />
+          </a>
+
+            </div>
+     
+          </div> 
+          
+            )}
+      
     </nav>
   );
 };
