@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    font-family: "Poppins", sans-serif;
+}
+
+html{
+    scroll-behavior : smooth;
+}
+
+@layer utilities {
+  /* Mobile-friendly softer slant */
+  .clip-path-mobile {
+    clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+  }
+
+  /* Desktop V-shape dip */
+  .clip-path-desktop {
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+  }
+
+  .clip-path-custom{
+        clip-path: polygon(0 0, 100% 0, 100% 98%, 25% 95%, 0 100%);
+  }
+  .clip-path-custom-2{
+        clip-path: polygon(0 0, 100% 0, 100% 98%, 75% 96%, 0 100%);
+  }
+}
