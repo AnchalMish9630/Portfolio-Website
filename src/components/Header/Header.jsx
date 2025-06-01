@@ -34,7 +34,7 @@ export const Header = () => {
     { id: "about", label: "About" },
     { id: "skills", label: "Skills" },
     { id: "experience", label: "Experince" },
-    { id: "work", label: "Work" },
+    { id: "personal-work", label: "Work" },
     { id: "education", label: "Education" },
   ];
 
@@ -57,18 +57,21 @@ export const Header = () => {
         </div>
 
         <ul className="hidden md:flex space-x-8 text-gray-300">
-          {navItems.map((navItem) => (
-            <li
-              key={navItem.id}
-              className={`cursor-pointer hover:text-[#8245ec] ${
-                currentTab === navItem.id ? "text-[#8245ec]" : ""
-              }`}
-            >
-              <button onClick={() => handleNavBar(navItem.id)}>
-                {navItem.label}
-              </button>
-            </li>
-          ))}
+         {navItems.map((navItem) => (
+  <li
+    key={navItem.id}
+    className={`cursor-pointer hover:text-[#8245ec] ${
+      currentTab === navItem.id ? "text-[#8245ec]" : ""
+    }`}
+  >
+    <a
+      href={`#${navItem.id}`}
+      onClick={() => handleNavBar(navItem.id)}
+    >
+      {navItem.label}
+    </a>
+  </li>
+))}
         </ul>
 
         <div className="hidden md:flex space-x-4">
