@@ -257,7 +257,8 @@ export const projects = [
       "API",
     ],
     github: "https://github.com/AnchalMish9630/netflix-gpt",
-    webapp: "https://githubprofiledetective.netlify.app/",
+    webapp: ""
+    // "https://githubprofiledetective.netlify.app/",
   },
   {
     id: 1,
@@ -275,14 +276,14 @@ export const projects = [
       "JavaScript",
     ],
     github: "https://github.com/AnchalMish9630/dev-tube",
-    webapp: "https://csprep.netlify.app/",
+    webapp: "",
+    // "https://csprep.netlify.app/",
     keyFeatures: [
       "🔍 Live search with autocomplete powered by YouTube API",
       "💬 Simulated live chat using state-based polling",
       "🧵 Nested comment threads mimicking YouTube discussions",
       "🎬 Dynamic video rendering from YouTube data",
       "🧱 Redux Toolkit for clean state management",
-      "📱 Tailwind CSS for mobile-first responsive design",
     ],
   },
   {
@@ -293,7 +294,8 @@ export const projects = [
     image: movierecLogo,
     tags: ["React JS", "API", "HTML", "CSS", "JavaScript"],
     github: "https://github.com/AnchalMish9630/React-Projects.",
-    webapp: "https://movie-recommendation-app-jet.vercel.app/",
+    webapp:"",
+    //  "https://movie-recommendation-app-jet.vercel.app/",
     keyFeatures: [
       "🧭 Multi-page routing with React Router DOM",
 
