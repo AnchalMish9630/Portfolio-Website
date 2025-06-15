@@ -80,27 +80,25 @@ const ExperienceCard = ({ experience, isLeft }) => {
               <ul className="text-sm text-gray-300 space-y-2">
                 {experience.projects.map((project, idx) => (
                   <li key={idx}>
-                    <div className="flex items-center space-x-6">
-                      <div>
-                        <strong className="text-purple-400">
-                          {project.title}
-                        </strong>{" "}
-                        ({project.date})<br />
-                        <strong className="text-purple-400">
-                          {project.subTitle}
-                        </strong>
-                        <br />
-                        <span>{project.description}</span>
-                      </div>
-                      <div className="w-16 h-16 bg-white rounded-md overflow-hidden">
-                        <img
-                          className="w-full h-full object-cover"
-                          src={experience.img}
-                          alt={experience.company}
-                        />
-                      </div>
-                    </div>
-                  </li>
+
+  <div className="flex items-start justify-between space-x-4">
+    <div>
+      <strong className="text-purple-400">{project.title}</strong> ({project.date})<br />
+      <strong className="text-purple-400">{project.subTitle}</strong>
+    </div>
+    <div className="w-12 h-12 bg-white rounded-md overflow-hidden">
+      <img
+        className="w-full h-full object-cover"
+        src={project.img}
+        alt={experience.company}
+      />
+    </div>
+  </div>
+
+  {/* Description below it */}
+  <p className="mt-2 text-gray-300">{project.description}</p>
+</li>
+
                 ))}
               </ul>
             )}
